@@ -9,6 +9,10 @@
 #import "QuizViewController.h"
 
 @interface QuizViewController ()
+- (IBAction)valueChanged:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 
 @end
 
@@ -18,12 +22,32 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    static float choice;
+    choice = self.slider.value;
+    NSString *labelText = [NSString stringWithFormat: @ "%f", choice ];
+    
+    
+    [self.label setText: labelText];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    
+
 }
 
+
+- (IBAction)valueChanged:(id)sender {
+    static float choice;
+      choice = self.slider.value;
+    NSString *labelText = [NSString stringWithFormat: @ "%f", choice ];
+  
+    
+    [self.label setText: labelText];
+    
+}
 @end
